@@ -66,3 +66,102 @@ dotnet ef database update
 ```bash
 dotnet ef database drop
 ```
+
+## 二、React 基础
+
+### 1. 创建React项目
+
+使用`vite`创建react项目。
+```bash
+npm create vite@latest
+```
+
+安装依赖
+```bash
+PS D:\SourceCode\learn-dotnet-ecommerce\Restore> npm create vite@latest
+Need to install the following packages:
+create-vite@7.0.0
+Ok to proceed? (y) y
+
+
+> npx
+> create-vite
+
+│
+◇  Project name:
+│  client
+│
+◇  Select a framework:
+│  React
+│
+◇  Select a variant:
+│  TypeScript + SWC
+│
+◇  Scaffolding project in D:\SourceCode\learn-dotnet-ecommerce\Restore\client...    
+│
+└  Done. Now run:
+
+  cd client
+  npm install
+  npm run dev
+
+```
+
+修改端口号可以在 `vite.config.ts` 文件中，增加 `server` 配置并设置 `port` 字段。
+```ts
+export default defineConfig({
+  server: {
+    port: 3000
+  },
+  plugins: [react()],
+})
+```
+
+### 2. 增加跨域处理
+
+添加Cors服务。
+```csharp
+builder.Services.AddCors();
+```
+
+添加Cors中间件。
+```csharp
+app.UseCors(builder => builder.AllowAnyHeader()
+    .AllowAnyMethod()
+    .WithOrigins("http://localhost:3000"));
+```
+
+### 3. 安装样式库
+
+前端安装 `vite-plugin-mkcert` 插件。
+```bash
+npm install -D vite-plugin-mkcert
+``` 
+
+在 `vite.config.ts` 文件中增加该插件的调用。
+
+```ts
+...
+import mkcert from 'vite-plugin-mkcert'
+
+export default defineConfig({
+  ...
+  plugins: [react(), mkcert()],
+})
+```
+
+安装 `materi-ui`。
+```bash
+npm install @mui/material @emotion/react @emotion/styled
+```
+
+安装 `roboto` 字体。
+```bash
+npm install @fontsource/roboto
+```
+
+安装 `icons-material` 图标。
+```bash
+npm install @mui/icons-material
+```
+
