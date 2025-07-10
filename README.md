@@ -165,3 +165,15 @@ npm install @fontsource/roboto
 npm install @mui/icons-material
 ```
 
+## 三、React 路由
+
+### 1. 为什么需要路由
+
+SPA需要路由是因为，它是一个单页应用，没有多个页面来路由，所以我们不是用一个文件替换另一个文件，我们是用一个组件来替换另一个组件。我们使用状态管理来控制显示某个组件。
+
+### 2. 安装插件
+
+安装 `react-router-dom` 路由库。
+```bash
+npm install react-router-dom
+```
