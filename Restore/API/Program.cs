@@ -13,6 +13,8 @@ builder.Services.AddCors();
 
 var app = builder.Build();
 
+app.UseHttpsRedirection();
+
 app.UseCors(options => options
     .AllowAnyHeader()
     .AllowAnyMethod()
